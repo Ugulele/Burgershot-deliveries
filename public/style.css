@@ -1,0 +1,160 @@
+:root
+{
+    --gray: #83A8Ac;
+    --dark-blue: #1d3969;
+    --light-blue: #0D80EE;
+    --white: #fff;
+    --red: #be1f24;
+    --orange-light: #f89739;
+    --orange-dark: #d46327;
+    --gray: #252525;
+}
+
+*,
+*::after,
+*::before{
+    box-sizing: border-box;
+    margin:0;
+    padding: 0;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: space-around;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--dark-blue);
+    color: var(--orange-light);
+    min-height: 100svh;
+}
+
+header{
+    display: flex;
+    justify-content: center;
+    padding: 0.75em;
+    width: 100%;
+    background: var(--gray);
+    box-shadow: 0px 5px 10px 1px rgba(0, 0, 0, 0.80);
+}
+
+h1{
+    font-size: 2.5rem;
+    color: var(--white);
+    text-decoration: underline;
+}
+
+main
+{
+    font-size: 1.25rem;
+    font-weight: 600;
+    display: flex;
+    flex-flow: column wrap;
+    row-gap: 1em;
+    margin: auto;
+    max-width: 1200px;
+    min-width: min(300px, 90%);
+}
+
+ul{
+    display: grid;
+    gap: 1em;
+}
+
+@media (max-width: 750px){
+    ul{
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+@media (min-width: 750px){
+    ul{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1025px){
+    ul{
+        grid-template-columns: repeat(3, 1fr);
+    } 
+}
+
+@media (min-width: 1400px){
+    ul{
+        grid-template-columns: repeat(4, 1fr);
+    } 
+}
+
+li{
+    background-color: var(--red);
+    display: grid;
+    place-items: center;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 5px 10px 1px rgba(0, 0, 0, 0.80);
+}
+
+li > span {
+    text-decoration: underline;
+}
+
+section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: var(--red);
+    gap: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 5px 10px 1px rgba(0, 0, 0, 0.80);
+}
+
+textarea{
+    width: 100%;
+    font-size: inherit;
+    min-height: 7rem;
+    resize: none;
+}
+
+textarea:focus-visible{
+    outline: transparent;
+}
+
+section > span {
+    font-size: 1.25rem;
+    text-align: center;
+    font-weight: 600;
+    text-decoration: underline;
+}
+input{
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+input:focus-visible{
+    outline:transparent
+}
+
+footer{
+    background-color: var(--gray);
+    color: var(--white);
+    width: 100%;
+    text-align: center;
+    padding: 0.6em;
+}
+
+a
+{
+    text-decoration: none;
+    outline: 0;
+    color: var(--white)
+}
+
+a:hover,
+a:focus-visible
+{
+    color: var(--light-blue);
+    transition: color 2s;
+}
