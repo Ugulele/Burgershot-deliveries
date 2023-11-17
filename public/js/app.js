@@ -79,7 +79,7 @@ const createDeliveryString = (inputList) => {
     const inputNormalizedList = []
     inputList.forEach((item, key)=> {
         const limit = getLimitForDaytime(key)
-        if(Number(item.value) && (Number(item.value) < limit)){
+        if(item.value && Number(item.value) >= 0 &&(Number(item.value) < limit)){
             inputNormalizedList.push({
                 "name": item.name,
                 "value": Number(item.value) < limit ? limit - Number(item.value): 0,
@@ -93,7 +93,7 @@ const calculateTotalCost = (inputList) => {
     const costList = []
     inputList.forEach((input, key) => {
         let currentValue
-        if(!Number(input.value)){
+        if(!input.value || Number(input.value < 0)){
             currentValue = 0
         }else{
             const limit = getLimitForDaytime(key)
