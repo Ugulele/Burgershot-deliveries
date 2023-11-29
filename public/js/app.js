@@ -12,7 +12,7 @@ const createListElement = () => {
 const createListItem = (product) => {
     const listItem = document.createElement("li")
 
-    const listItemName = document.createElement("span")
+    const listItemName = document.createElement("div")
     listItemName.innerText = `${product.name}:`
     listItem.appendChild(listItemName)
 

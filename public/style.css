@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;900&display=swap');
+
 :root
 {
     --gray: #83A8Ac;
@@ -21,7 +23,6 @@
 body{
     display: flex;
     flex-direction: column;
-    align-items: space-around;
     gap: 10px;
     align-items: center;
     justify-content: center;
@@ -43,60 +44,64 @@ h1{
     font-size: 2.5rem;
     color: var(--white);
     text-decoration: underline;
+    font-weight: 900;
 }
 
 main
 {
+    flex-grow: 1;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.5rem;
+
     font-size: 1.25rem;
     font-weight: 600;
-    display: flex;
-    flex-flow: column wrap;
-    row-gap: 1em;
-    margin: auto;
-    max-width: 1200px;
-    min-width: min(300px, 90%);
 }
 
 ul{
+    list-style: none;
     display: grid;
+    max-width: 1200px;
+    min-width: 300px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 1em;
 }
 
-@media (max-width: 750px){
-    ul{
-        grid-template-columns: repeat(1, 1fr);
+@media(max-width: 1025px){
+    ul
+    {
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 
-@media (min-width: 750px){
-    ul{
+@media(max-width: 750px){
+    ul
+    {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
-@media (min-width: 1025px){
-    ul{
-        grid-template-columns: repeat(3, 1fr);
-    } 
-}
-
-@media (min-width: 1400px){
-    ul{
-        grid-template-columns: repeat(4, 1fr);
-    } 
+@media(max-width: 375px){
+    ul
+    {
+        grid-template-columns: repeat(1, 1fr);
+    }
 }
 
 li{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     background-color: var(--red);
-    display: grid;
-    place-items: center;
     gap: 10px;
     padding: 10px;
     border-radius: 10px;
     box-shadow: 0px 5px 10px 1px rgba(0, 0, 0, 0.80);
 }
 
-li > span {
+li > div {
     text-decoration: underline;
 }
 
@@ -112,10 +117,10 @@ section{
 }
 
 textarea{
-    width: 100%;
     font-size: inherit;
-    min-height: 7rem;
     resize: none;
+    min-height: 7rem;
+    font-weight: 300;
 }
 
 textarea:focus-visible{
@@ -123,14 +128,19 @@ textarea:focus-visible{
 }
 
 section > span {
-    font-size: 1.25rem;
+    font-size: inherit;
+    font-family: inherit;
     text-align: center;
     font-weight: 600;
     text-decoration: underline;
 }
+
 input{
-    font-size: 1.1rem;
+    box-sizing: border-box;
+    font-size: inherit;
+    font-family: inherit;
     text-align: center;
+    width: min(12rem, 90%);
 }
 
 input:focus-visible{
@@ -138,9 +148,10 @@ input:focus-visible{
 }
 
 footer{
+    display: block;
+    min-width: 100%;
     background-color: var(--gray);
     color: var(--white);
-    width: 100%;
     text-align: center;
     padding: 0.6em;
 }
