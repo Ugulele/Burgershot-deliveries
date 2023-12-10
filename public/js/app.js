@@ -53,26 +53,26 @@ const injectTextAreaValue = (deliveryString, totalCost) => {
 }
 
 const createFooterElement = () => {
-    const footer = document.createElement("footer")
-    document.body.appendChild(footer)
-    
-    const date = new Date
+	const footer = document.createElement("footer")
+	document.body.appendChild(footer)
 
-    const link = document.createElement("a")
-    link.href = "https://github.com/Ugulele"
-    link.target = "blank"
-    link.innerHTML = `&copy; Ugulele ${date.getFullYear()}`
-    footer.appendChild(link)
+	const date = new Date()
+
+	const link = document.createElement("a")
+	link.href = "https://github.com/Ugulele"
+	link.target = "_blank"
+	link.innerHTML = `&copy; Ugulele ${date.getFullYear()}`
+	footer.appendChild(link)
 }
 
 const getLimitForDaytime = (key) => {
-    const now = new Date
-    let limit = productsList[key]["limit"]
-    if(now.getHours() > 21 || now.getHours() < 9){
-        limit = 35
-    }
-    
-    return limit
+	const now = new Date()
+	let limit = productsList[key]["limit"]
+	if (now.getHours() > 21 || now.getHours() < 9) {
+		limit = Math.min(35, productsList[key]["limit"])
+	}
+
+	return limit
 }
 
 const createDeliveryString = (inputList) => {
